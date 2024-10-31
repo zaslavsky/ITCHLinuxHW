@@ -1,0 +1,27 @@
+export ZASLAVSKY_VARIABLE = "290724"
+# Перешёл в директорию
+
+cd /opt/290724-ptm/Dmitry_Zaslavsky/
+
+# Создал скрытый
+touch .process_management
+
+
+# Записываем в фаил текущую дату
+date > .process_management
+
+# Дописываем сообщение "Welcome to Amazon server"
+echo "Welcome to Amazon server" >> .process_management
+
+# Дописываем информацию об общем объеме оперативной памяти
+free -h | grep "Mem:" >> .process_management
+
+
+# Подсчитываем количество процессов, запущенных под пользователем root, и дописываем в файл
+ps -U root | wc -l >> .process_management
+
+# Фильтруем и дописываем информацию об объявленных переменных, оставляя только нашу переменную
+export | grep 'ZASLAVSKY' >> .process_management
+
+# Получаем PID и PPID процесса "/usr/sbin/sshd -D" и дописываем в файл
+ps -e -o pid,ppid,cmd | grep "[s]shd -D" | awk '{print "PID: " $1 ", PPID: " $2}' >> .process_management

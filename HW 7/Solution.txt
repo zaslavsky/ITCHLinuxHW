@@ -1,0 +1,24 @@
+#Создание файла /tmp/file.txt и добавление 3 первых строк из вывода df -h
+
+df -h | head -n 3 > /tmp/file.txt
+#Установка прав для файла /tmp/file.txt
+
+chmod 760 /tmp/file.txt
+
+#Создание скрипта myfirstbashscript.sh
+nano  myfirstbashscript.sh
+
+#Текст скрипта:
+
+#!/bin/bash
+export USER="Dmitry"
+echo "Скрипт запущен из каталога: $(pwd)"
+
+# Сделать скрипт myfirstbashscript.sh исполняемым
+chmod +x myfirstbashscript.sh
+
+# Дописать содержимое myfirstbashscript.sh в /tmp/file.txt
+cat myfirstbashscript.sh >> /tmp/file.txt
+
+# Дописать историю команд в /tmp/file.txt
+history >> /tmp/file.txt

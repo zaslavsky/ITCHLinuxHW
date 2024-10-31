@@ -1,0 +1,11 @@
+Не до конца понял что я должен был здесь по итогу написать. 
+
+Вот допустим однострочник который создаст скрипт:
+
+echo -e '#!/bin/bash\nDATE=$(date +"%d.%m.%y")\nfor i in {1..10}; do\n\ttouch "${i}_${DATE}"\ndone' > /opt/290724-ptm/Dmitry_Zaslavsky/task_Zaslavsky_HW13.sh
+
+скрипт и архив с результатами всего лежит в:
+/opt/290724-ptm/Dmitry_Zaslavsky/
+
+В кроне оставил пока так:
+#*/15 * * * * /opt/290724-ptm/Dmitry_Zaslavsky/task_Zaslavsky_HW13.sh

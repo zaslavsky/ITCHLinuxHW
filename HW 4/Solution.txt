@@ -1,0 +1,15 @@
+команды для выполнения задачи:
+output_file="solanka"
+
+date > "$output_file";
+
+df / >> "$output_file";
+
+history | tail -n 3 >> "$output_file";
+
+grep "cron" /etc/passwd >> "$output_file";
+
+grep -c "root" /etc/group >> "$output_file";
+
+# Далее открою Nano и присру в 2 строку “Modified with text editor”
+nano "$output_file"
